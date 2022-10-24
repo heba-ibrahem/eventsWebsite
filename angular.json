@@ -31,9 +31,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "bootstrap/dist/css/bootstrap.min.css",
+              "font-awesome/css/font-awesome.min.css",
+              "node_modules/ngx-toastr/toastr.css"
+            
             ],
-            "scripts": []
+            "scripts": [ 
+              "./node_modules/jquery/dist/jquery.min.js",
+             "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+          ]
           },
           "configurations": {
             "production": {
@@ -127,5 +134,8 @@
       }
     }
   },
-  "defaultProject": "eventsWebsite"
+  "defaultProject": "eventsWebsite",
+  "cli": {
+    "analytics": "c17762a7-f49f-4354-b63c-a02974ec31cc"
+  }
 }

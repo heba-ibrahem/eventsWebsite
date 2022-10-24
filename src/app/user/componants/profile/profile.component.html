@@ -1,0 +1,25 @@
+<div>
+    <h1>Edit your profile</h1>
+    <hr>
+    <div class="col-md-6">
+        <!-- reactive form -->
+        <form [formGroup]="profileForm" (ngSubmit)="edit(profileForm.value)">
+            <div class="form-group" [ngClass]="{'error':!validateFirstName()}">
+                <label for="firstName">First Name :</label>
+                <!-- <em *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.required">Required</em> -->
+                <!-- <em *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.pattern">Mustn't Start with a number</em> -->
+                
+                <input type="text" formControlName="firstName" id="firstName" name="firstName" class="form-control" placeholder="firstName" required>
+              </div>
+              <div class="form-group" [ngClass]="{'error':!validateLastName()} ">
+                <label for="lastName">lastName :</label>
+                <em *ngIf="!validateLastName() ">Required</em>
+                
+                <input type="text" formControlName="lastName" id="lastName" name="lastName" class="form-control" placeholder="lastName" required>
+              </div>
+              <button class="btn btn-primary" type="submit">Save</button>
+              <button class="btn btn-danger" type="button" (click)="cancel()">Cancel</button>
+        </form>
+       
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div>
+  <h1 class="text-primary">Upcoming Angular Events</h1>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-5" *ngFor="let event of events">
+    <app-event-card [event]="event" ></app-event-card>
+
+    </div>
+  </div>
+</div>

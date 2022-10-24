@@ -1,0 +1,17 @@
+<div class="row" *ngFor=" let session of visisableSassions">
+    <div class="col-md-10">
+        <app-collapsiable-well >
+            <!-- <h4>{{session?.name}}</h4> -->
+            <div  well-title>
+                {{session?.name}}
+                <i *ngIf="session.voters.length > 3" class="fa fa-fire" style="color:red"></i>
+            </div>
+            <div well-body>
+                <h6>{{session?.presenter}}</h6>
+            <span>Duration: {{session.duration | duration}}</span><br>
+            <span>Level: {{session?.level}}</span>
+            <p>{{session?.abstract}}</p>
+            </div>
+        </app-collapsiable-well>
+    </div>
+</div>
