@@ -1,11 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
   <div>
     <a class="navbar-brand mx-4">Events website</a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
   </div>
-  <div  class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="nav navbar-nav">
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/events']" routerLinkActive="router-link-active">All Events <span
@@ -21,9 +22,9 @@
     </ul>
     <form id="searchForm" class="d-flex" (ngSubmit)="search(searchTerm)">
       <div class="form-group ms-5 ">
-        <input type="text" class="form-control" placeholder="Search"  [(ngModel)]="searchTerm" name="searchTerm"/>
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchTerm" name="searchTerm" />
       </div>
-      <button class="btn btn-success"  appModalTrigger="searchResult">Search</button>
+      <button class="btn btn-success" appModalTrigger="searchResult">Search</button>
 
     </form>
     <div class=" navbar-header ms-5 p-2 ">
@@ -40,7 +41,7 @@
 
 <app-modal elementId="searchResult" title="Matching sessions">
   <div class="list-group">
-    <a class="list-gtoup-item" *ngFor="let session of foundSession" [routerLink]="['/event',session.id]" >
+    <a class="list-gtoup-item" *ngFor="let session of foundSession" [routerLink]="['/event',session.id]">
       {{session.name}}
     </a>
   </div>

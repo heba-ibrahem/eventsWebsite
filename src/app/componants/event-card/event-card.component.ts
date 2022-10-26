@@ -7,7 +7,7 @@ import { IEvent } from 'src/app/shared/viewModel/i-event';
   styleUrls: ['./event-card.component.scss']
 })
 export class EventCardComponent implements OnInit {
-  @Input() event:any
+  @Input() event: IEvent | undefined;
 
   constructor() { }
 

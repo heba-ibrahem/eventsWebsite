@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './componants/navbar/navbar.component';
 import { EventListComponent } from './componants/event-list/event-list.component';
 import { EventCardComponent } from './componants/event-card/event-card.component';
-import { HomeComponent } from './componants/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventDetailsComponent } from './componants/event-details/event-details.component';
 import { NewEventComponent } from './componants/new-event/new-event.component';
@@ -18,11 +17,13 @@ import { CollapsiableWellComponent } from './shared/componants/collapsiable-well
 import { DurationPipe } from './shared/pipes/duration.pipe';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ToastrModule ,  ToastNoAnimation, ToastNoAnimationModule} from 'ngx-toastr';
+import {  ToastNoAnimationModule} from 'ngx-toastr';
 import { ModalComponent } from './shared/componants/modal/modal.component';
 import { ModalTriggerDirective } from './shared/directive/modal-trigger.directive';
-import { JQ_TOKEN} from './services/jquery.service'
-
+import { JQ_TOKEN} from './services/jquery.service';
+import { UpVoteComponent } from './componants/up-vote/up-vote.component';
+import { LocationValidatorDirective } from './shared/directive/location-validator.directive'
+import { HttpClientModule } from '@angular/common/http'
 
 let jQuery = window['$' as unknown as number] ;
 
@@ -33,7 +34,6 @@ let jQuery = window['$' as unknown as number] ;
     NavbarComponent,
     EventListComponent,
     EventCardComponent,
-    HomeComponent,
     EventDetailsComponent,
     NewEventComponent,
     NotFoundComponent,
@@ -43,6 +43,9 @@ let jQuery = window['$' as unknown as number] ;
     DurationPipe,
     ModalComponent,
     ModalTriggerDirective,
+    UpVoteComponent,
+    LocationValidatorDirective,
+    
 
   ],
   imports: [
@@ -52,6 +55,7 @@ let jQuery = window['$' as unknown as number] ;
     ReactiveFormsModule,
     // BrowserAnimationsModule,
     ToastNoAnimationModule.forRoot(),
+    HttpClientModule 
 
   ],
   providers: [

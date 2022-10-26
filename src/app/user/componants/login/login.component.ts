@@ -9,22 +9,30 @@ import { AuthService } from '../../service/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  userName='';
-  password ='';
-  mouseoverLogin!: boolean; 
-  constructor(private auth:AuthService, private route:Router) {
-    
-   }
+  userName = '';
+  password = '';
+  mouseoverLogin!: boolean;
+  logintInvaild = false;
+  constructor(private auth: AuthService, private route: Router) {
+
+  }
 
   ngOnInit(): void {
   }
-  login(formValue: any){
+  login(formValue: any) {
     console.log(formValue)
     this.auth.loginUser(formValue.userName, formValue.password)
-    this.route.navigate(['/user/profile'])
+      .subscribe(res => {
+        if (!res) {
+          this.logintInvaild = true
+        } else {
+          this.route.navigate(['/user/profile']);
+        }
+      })
   }
-  cancel(){
-    this.route.navigate(['/events'])
+  cancel() {
+    this.route.navigate(['/events']);
   }
+
 
 }

@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { CreateSessionComponent } from './create-session.component';
 
@@ -8,9 +10,12 @@ describe('CreateSessionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateSessionComponent ]
+      declarations: [CreateSessionComponent],
+      imports: [RouterTestingModule,
+        FormsModule,
+        ReactiveFormsModule]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

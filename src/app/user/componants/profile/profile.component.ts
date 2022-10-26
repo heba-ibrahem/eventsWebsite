@@ -45,5 +45,11 @@ export class ProfileComponent implements OnInit {
   cancel(){
     this.route.navigate(['/events'])
   }
+  logOut(){
+    
+    this.auth.logOut().subscribe(()=>{
+      this.route.navigate(['/user/login'])
+    })
+  }
 
 }

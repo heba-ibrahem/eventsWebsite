@@ -9,11 +9,13 @@ import { IEvent } from 'src/app/shared/viewModel/i-event';
 })
 export class EventListComponent implements OnInit {
 
-  events:IEvent[] =[]
-  constructor(private eventSer : EventsService) { }
+  events: IEvent[] = [];
+  constructor(private eventSer: EventsService) { }
 
   ngOnInit(): void {
-    this.events=this.eventSer.getEvents()
-  }
-
-}
+    this.eventSer.getEvents().subscribe(events => {
+      this.events = events;
+    });
+    console.log(this.eventSer.getEvents());
+  };
+};

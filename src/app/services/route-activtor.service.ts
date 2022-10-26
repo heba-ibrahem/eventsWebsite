@@ -8,13 +8,13 @@ import { EventsService } from './events.service';
 })
 export class RouteActivtorService implements CanActivate {
 
-  constructor( private eventSer: EventsService, private route: Router) { }
+  constructor(private eventSer: EventsService, private route: Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot, ): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+  canActivate(route: ActivatedRouteSnapshot,): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     const eventExists = !!this.eventSer.getEvent(+route.params['id']);
-    if(!eventExists){
-        this.route.navigate(['**'])
+    if (!eventExists) {
+      this.route.navigate(['**']);
     }
-    return eventExists 
+    return eventExists
   }
 }

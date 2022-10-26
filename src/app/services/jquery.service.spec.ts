@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+// import { TestBed } from '@angular/core/testing';
 
-import { JqueryService } from './jquery.service';
+// import { JqueryService } from './jquery.service';
 
-describe('JqueryService', () => {
-  let service: JqueryService;
+// describe('JqueryService', () => {
+//   let service: JqueryService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(JqueryService);
-  });
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({});
+//     service = TestBed.inject(JqueryService);
+//   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+//   it('should be created', () => {
+//     expect(service).toBeTruthy();
+//   });
+// });

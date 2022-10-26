@@ -3,75 +3,75 @@
   <hr>
   <div class="col-md-6">
     <form #newEventForm="ngForm" (ngSubmit)="addEvent(newEventForm.value)">
-        <!-- name -->
-      <div class="form-group"  [ngClass]="{'error':newEventForm.controls.name?.invalid && newEventForm.controls.name?.touched}">
+      <!-- name -->
+      <div class="form-group"
+        [ngClass]="{'error':newEventForm.controls.name?.invalid && newEventForm.controls.name?.touched}">
         <label for="name">Event Name :</label>
-        <em
-          *ngIf="newEventForm.controls.name?.invalid && newEventForm.controls.name?.touched ">Required</em>
+        <em *ngIf="newEventForm.controls.name?.invalid && newEventForm.controls.name?.touched ">Required</em>
         <input type="text" (ngModel)="newEvent.name" id="name" name="name" class="form-control"
           placeholder="Event Name " required>
       </div>
       <!-- date -->
-      <div class="form-group"  [ngClass]="{'error':newEventForm.controls.date?.invalid && newEventForm.controls.date?.touched}">
+      <div class="form-group"
+        [ngClass]="{'error':newEventForm.controls.date?.invalid && newEventForm.controls.date?.touched}">
         <label for="date">Event Date :</label>
-        <em
-          *ngIf="newEventForm.controls.date?.invalid && newEventForm.controls.date?.touched ">Required</em>
+        <em *ngIf="newEventForm.controls.date?.invalid && newEventForm.controls.date?.touched ">Required</em>
         <input type="text" (ngModel)="newEvent.date" id="date" name="date" class="form-control"
           placeholder="Event Date " required>
       </div>
       <!-- time -->
-      <div class="form-group"  [ngClass]="{'error':newEventForm.controls.time?.invalid && newEventForm.controls.time?.touched}">
+      <div class="form-group"
+        [ngClass]="{'error':newEventForm.controls.time?.invalid && newEventForm.controls.time?.touched}">
         <label for="time">Event Time :</label>
-        <em
-          *ngIf="newEventForm.controls.time?.invalid && newEventForm.controls.time?.touched ">Required</em>
+        <em *ngIf="newEventForm.controls.time?.invalid && newEventForm.controls.time?.touched ">Required</em>
         <input type="text" (ngModel)="newEvent.time" id="time" name="time" class="form-control"
           placeholder="Event Time " required>
       </div>
       <!-- price -->
-      <div class="form-group"  [ngClass]="{'error':newEventForm.controls.price?.invalid && newEventForm.controls.price?.touched}">
+      <div class="form-group"
+        [ngClass]="{'error':newEventForm.controls.price?.invalid && newEventForm.controls.price?.touched}">
         <label for="price">Event Price :</label>
-        <em
-          *ngIf="newEventForm.controls.price?.invalid && newEventForm.controls.price?.touched ">Required</em>
+        <em *ngIf="newEventForm.controls.price?.invalid && newEventForm.controls.price?.touched ">Required</em>
         <input type="text" (ngModel)="newEvent.price" id="price" name="price" class="form-control"
           placeholder="Event Price " required>
       </div>
       <!-- location -->
-      <div ngModelGroup="location">
-        <div class="form-group">
-          <label for="adress">Event Location :</label>
-          <em
-            *ngIf="newEventForm.controls.adress?.invalid && newEventForm.controls.adress?.touched Required"></em>
-          <input type="text" (ngModel)="newEvent.location" id="adress" name="adress" class="form-control"
-            placeholder="Event Location " required>
+      <div ngModelGroup="location" #locationGroup="ngModelGroup" appLocationValidator>
+        <div class="form-group" [ngClass]="{'error':locationGroup?.invalid && locationGroup?.touched}">
+          <label for="address">Event Location :</label>
+          <em *ngIf="locationGroup?.invalid && locationGroup?.touched ">You must either enter thee full address of
+            Online URL</em>
+          <input type="text" (ngModel)="newEvent.location" id="address" name="address" class="form-control"
+            placeholder="Event Location ">
         </div>
         <div class="row">
-          <div class="col-md-6">
-            <input type="text" (ngModel)="newEvent.city" id="city" name="city"  class="form-control " placeholder="City "></div>
-          <div class="col-md-6">
-            <input type="text" (ngModel)="newEvent.country" id="country" name="country" class="form-control " placeholder="Country "></div>
+          <div class="col-md-6" [ngClass]="{'error':locationGroup?.invalid && locationGroup?.touched}">
+            <input type="text" (ngModel)="newEvent.city" id="city" name="city" class="form-control "
+              placeholder="City ">
+          </div>
+          <div class="col-md-6" [ngClass]="{'error':locationGroup?.invalid && locationGroup?.touched}">
+            <input type="text" (ngModel)="newEvent.country" id="country" name="country" class="form-control "
+              placeholder="Country "></div>
         </div>
-       
+
       </div>
       <!-- online Url -->
-      <div class="form-group" [ngClass]="{'error':newEventForm.controls.onlineUrl?.invalid && newEventForm.controls.onlineUrl?.touched}">
+      <div class="form-group" [ngClass]="{'error':locationGroup?.invalid && locationGroup?.touched}">
         <label for="onlineUrl">Online Url:</label>
-        <em
-          *ngIf="newEventForm.controls.onlineUrl?.invalid && newEventForm.controls.onlineUrl?.touched"> Required</em>
         <input type="text" (ngModel)="newEvent.onlineUrl" id="onlineUrl" name="onlineUrl" class="form-control"
-          placeholder="Online Url " required>
+          placeholder="Online Url " (change)="locationGroup.control.controls.address.updateValueAndValidity()">
       </div>
       <!-- image -->
-      <div class="form-group"  [ngClass]="{'error':newEventForm.controls.img?.invalid && newEventForm.controls.img?.touched}">
+      <div class="form-group"
+        [ngClass]="{'error':newEventForm.controls.img?.invalid && newEventForm.controls.img?.touched}">
         <label for="img">Image:</label>
-        <em
-          *ngIf="newEventForm.controls.img?.invalid && newEventForm.controls.img?.touched ">Required</em>
-        <input type="text" (ngModel)="newEvent.img" id="img" name="img" class="form-control"
-          placeholder="Url of Image" required>
-          <img [src]="newEventForm.controls.img?.value" *ngIf="newEventForm.controls.img?.value">
+        <em *ngIf="newEventForm.controls.img?.invalid && newEventForm.controls.img?.touched ">Required</em>
+        <input type="text" (ngModel)="newEvent.img" id="img" name="img" class="form-control" placeholder="Url of Image"
+          required>
+        <img [src]="newEventForm.controls.img?.value" *ngIf="newEventForm.controls.img?.value">
       </div>
-    <button class="btn btn-primary" [disabled]="newEventForm.invalid" type="submit">Save</button>
-    <button class="btn btn-danger" type="button" (click)="cancel()">Cancel</button>
-</form>
-
+      <button class="btn btn-primary" [disabled]="newEventForm.invalid" type="submit">Save</button>
+      <button class="btn btn-danger" type="button" (click)="cancel()">Cancel</button>
+    </form>
   </div>
 </div>

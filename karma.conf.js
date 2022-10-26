@@ -28,7 +28,7 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/eventsWebsite'),
       subdir: '.',
       reporters: [
-        { type: 'html' },
+        { type: 'html'  },
         { type: 'text-summary' }
       ]
     },

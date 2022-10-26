@@ -9,19 +9,17 @@ import { AuthService } from 'src/app/user/service/auth.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  searchTerm='';
-  foundSession : ISession[]=[];
+  searchTerm = '';
+  foundSession: ISession[] = [];
 
-  constructor(public auth:AuthService, private eventSer:EventsService) { }
+  constructor(public auth: AuthService, private eventSer: EventsService) { }
 
   ngOnInit(): void {
   }
-  search(searchTerm: string){
+  search(searchTerm: string) {
     this.eventSer.searchSevice(searchTerm).subscribe((sessions: ISession[]) => {
-      this.foundSession= sessions;
+      this.foundSession = sessions;
       // console.log(this.foundSession)
     });
-    
-  }
-
-}
+  };
+};

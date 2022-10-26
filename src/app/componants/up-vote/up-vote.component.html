@@ -1,0 +1,9 @@
+<div class="badge bg-dark my-2 p-1" (click)="onClick()">
+  <div class="bg-dark">
+    <i *ngIf="voted" class="fa fa-heart text-danger my-2"></i>
+    <i *ngIf="!voted" class="fa fa-heart-o text-danger my-2"></i>
+  </div>
+  <div class="badge bg-success">
+    <div>{{count}}</div>
+  </div>
+</div>

@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ISession } from 'src/app/shared/viewModel/i-event'
 
 @Component({
@@ -9,7 +8,7 @@ import { ISession } from 'src/app/shared/viewModel/i-event'
   styleUrls: ['./create-session.component.scss']
 })
 export class CreateSessionComponent implements OnInit {
-  newSessionForm! :FormGroup;
+  newSessionForm!: FormGroup;
   name!: FormControl;
   presenter!: FormControl;
   duration!: FormControl;
@@ -20,7 +19,7 @@ export class CreateSessionComponent implements OnInit {
 
 
 
-  constructor(private route: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.name = new FormControl('', Validators.required);
@@ -30,24 +29,24 @@ export class CreateSessionComponent implements OnInit {
     this.abstract = new FormControl('', [Validators.required, this.restrictedWords]);
 
     this.newSessionForm = new FormGroup({
-      name: this.name , 
-      presenter: this.presenter , 
-      duration: this.duration , 
-      level: this.level  ,
+      name: this.name,
+      presenter: this.presenter,
+      duration: this.duration,
+      level: this.level,
       abstract: this.abstract,
     })
 
 
   }
-  restrictedWords(control: FormControl){
+  restrictedWords(control: FormControl) {
     return control.value.includes("foo")
-    ? {'restrictedWords' : 'foo'}
-    : {"null": ""}
+      ? { 'restrictedWords': 'foo' }
+      : { "null": "" }
 
   }
-  save(formValue:any){
+  save(formValue: any) {
     console.log(formValue)
-    let session: ISession ={
+    let session: ISession = {
       id: 0,
       name: formValue.name,
       presenter: formValue.presenter,

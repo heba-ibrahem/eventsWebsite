@@ -1,14 +1,14 @@
-<div class="card m-3"   [routerLink]="['/event',event.id]"  >
-    <div class="card-body bg-light">
-        <h5 class="card-title"  >Name: {{event.name| uppercase}} </h5>
-        <div class="card-text">
-            <p>Date: {{event.date}}</p>
-            <p>Time: {{event.time}}</p>
-            <p>Price: {{event.price}}</p>
-            <p>location: {{event.location.address}}</p>
-        </div>
+<div class="card m-3" [routerLink]="['/event',event?.id]">
+  <div class="card-body bg-light">
+    <h5 class="card-title">Name: {{event?.name| uppercase}} </h5>
+    <div class="card-text">
+      <p>Date: {{event?.date}}</p>
+      <p>Time: {{event?.time}}</p>
+      <p>Price: {{event?.price}}</p>
+      <p>location: {{event?.location?.address}}</p>
     </div>
-    <div class="card-footer">
-        Have nice time
-    </div>
+  </div>
+  <div class="card-footer">
+    Have nice time
+  </div>
 </div>
